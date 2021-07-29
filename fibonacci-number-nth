@@ -1,0 +1,39 @@
+package razi.motashim;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        fib();
+    }
+
+    public static void fib() {
+        int first = 1;
+        int second = 1;
+        Scanner source = new Scanner(System.in);
+        System.out.println("Enter your desired nth number to print fibonacci series: ");
+        boolean checkInt = source.hasNextInt();
+        if (!checkInt) {
+            System.out.println("Invalid value");
+        }
+        else {
+            int n = source.nextInt();
+            if (n == 0) {
+                System.out.println("The Fibonacci series: 0");
+            }
+            else {
+                System.out.print("The Fibonacci series: ");
+                System.out.print(first + " ");
+                System.out.print(second);
+                for (int i = 3; i <= n; i++) {
+                    int yield = first + second;
+                    System.out.print(" " + yield);
+                    first = second;
+                    second = yield;
+                }
+            }
+        }
+        source.close();
+    }
+}
